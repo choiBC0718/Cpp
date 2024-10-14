@@ -2,22 +2,22 @@
 using namespace std;
 #include "Dept.h"
 
-Dept::Dept(int size) {		//size¸¦ ¸Å°³º¯¼ö·Î ¹Ş´Â »ı¼ºÀÚ
+Dept::Dept(int size) {		//sizeë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ëŠ” ìƒì„±ì
 	this->size = size;
 	scores = new int[size];
 }
 
-Dept::Dept(const Dept& dept) {	//º¹»ç »ı¼ºÀÚ
+Dept::Dept(const Dept& dept) {	//ë³µì‚¬ ìƒì„±ì
 	this->size = dept.size;
-	scores = new int[dept.size];//¾èÀº º¹»ç¸¦ ÇÏÁö ¾Ê±â À§ÇÑ ¸Ş¸ğ¸® °ø°£ È®º¸
-	for (int i = 0; i < dept.size; i++) { //ÇÒ´çÇÑ ¸Ş¸ğ¸®¿¡ °ª º¹»çÇÏ¿© ³Ö±â
+	scores = new int[dept.size];//ì–•ì€ ë³µì‚¬ë¥¼ í•˜ì§€ ì•Šê¸° ìœ„í•œ ë©”ëª¨ë¦¬ ê³µê°„ í™•ë³´
+	for (int i = 0; i < dept.size; i++) { //í• ë‹¹í•œ ë©”ëª¨ë¦¬ì— ê°’ ë³µì‚¬í•˜ì—¬ ë„£ê¸°
 		scores[i] = dept.scores[i];
 	}
 }
 
-Dept::~Dept() {	//¼Ò¸êÀÚ
+Dept::~Dept() {	//ì†Œë©¸ì
 	if (scores) {
-		delete[] scores;		//µ¿ÀûÀ¸·Î ÇÒ´ç ¹ŞÀº ¸Ş¸ğ¸® ¹İÈ¯
+		delete[] scores;		//ë™ì ìœ¼ë¡œ í• ë‹¹ ë°›ì€ ë©”ëª¨ë¦¬ ë°˜í™˜
 	}
 }
 
@@ -25,14 +25,14 @@ int Dept::getSize() {
 	return size;
 }
 
-void Dept::read() {				//ÀÔ·ÂÇÑ Á¡¼ö¸¦ scores ¹è¿­¿¡ ¹İº¹¹®À» ÅëÇØ ÀúÀå
-	cout << size << "°³ Á¡¼ö ÀÔ·Â>> " ;
+void Dept::read() {				//ì…ë ¥í•œ ì ìˆ˜ë¥¼ scores ë°°ì—´ì— ë°˜ë³µë¬¸ì„ í†µí•´ ì €ì¥
+	cout << size << "ê°œ ì ìˆ˜ ì…ë ¥>> " ;
 	for (int i = 0; i < size; i++) {
 		cin >> scores[i];
 	}
 }
 
-bool Dept::isOver60(int index) {  //º¹»ç »ı¼ºÀÚ¸¦ ÅëÇØ »ı¼ºµÈ °´Ã¼ÀÇ scores ¹è¿­ÀÇ °ªÀ» ÁöÁ¤ÇØÁà¾ß ÇÔ. ±× ¹æ¹ıÀÌ ¹¹Áö
+bool Dept::isOver60(int index) {
 	if (scores[index] >= 60) {
 		return true;
 	}
